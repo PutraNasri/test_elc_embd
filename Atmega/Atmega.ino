@@ -18,10 +18,13 @@ Thread Thread3 = Thread();
 void setup() {
   
   Serial.begin(115200);
+  
   pinMode(btn_1,INPUT);
   pinMode(btn_2,INPUT);
   pinMode(btn_3,INPUT);
   pinMode(btn_4,INPUT);
+
+  pinMode(pwm_signal_motor,OUTPUT);
 
   Thread1.onRun(button_handle);
   Thread1.setInterval(500); //set interval masing2 thread (*)

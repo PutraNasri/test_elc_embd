@@ -1,6 +1,6 @@
-#include <ESP8266WiFi.h>
+#include <ESP8266WiFi.h> //sesuaikan dengan jenis esp yang digunakan
 #include <SD.h>
-#define CS_PIN  15
+#define CS_PIN  15 //pin CS
 
 void setup() {
   Serial.begin(115200);
@@ -18,10 +18,10 @@ void loop() {
   if(Serial.available()){
     String data = Serial.readStringUntil('\n');
     //char data = Serial.read();
-    File dataFile = SD.open("LOG.txt", FILE_WRITE);
+    File dataFile = SD.open("LOG.txt", FILE_WRITE); //membuka file .txt
     if (dataFile) {
-      dataFile.println(data);
-      dataFile.close();
+      dataFile.println(data); //menyimpan data ke dalam file
+      dataFile.close(); //menutup file
     }
     else {
     Serial.println("Gagal membuka file LOG.txt");
